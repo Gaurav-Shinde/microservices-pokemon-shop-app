@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AdminComponent } from './components/admin/admin.component';
 import { AddProductComponent } from './components/admin/add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     CheckoutComponent,
     AdminComponent,
-    AddProductComponent
+    AddProductComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

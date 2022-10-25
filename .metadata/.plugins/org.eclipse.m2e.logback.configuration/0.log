@@ -3211,3 +3211,6 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: in comment 
 2022-10-25 09:18:03,861 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-10-25 09:18:03,862 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2022-10-25 09:18:03,863 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-25 09:18:03,867 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-25 09:18:03,867 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-25 09:18:03,868 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gaura\Documents\JavaPractice\microservices-pokemon-shop-app\product-service\src\test\resources

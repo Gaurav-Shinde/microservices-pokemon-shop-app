@@ -5,12 +5,14 @@ import { AdminComponent } from './components/admin/admin.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HomeComponent } from './components/home/home.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   { path: "cart", component: CartComponent },
   { path: "checkout", component: CheckoutComponent },
   { path: "admin", component: AdminComponent },
   { path: "add-product", component: AddProductComponent },
+  { path: "orders", component: OrdersComponent },
   { path: "", component: HomeComponent } //keep at bottom
 ];
 
