@@ -72,7 +72,7 @@ You can use postman for testing endpoints and log tracing in Zipkin. To run zipk
 
 - Zipkin seems to not detect services and their log trace, but sleuth can.
 
-- I noticed occasional 
+- I noticed occasional sun.misc.Unsafe.park indicating improper use of thread and cpu usage due to thread parking.
 
 - Will try to use Feign Client to integrate custom http client response handling and fallback methods.
 

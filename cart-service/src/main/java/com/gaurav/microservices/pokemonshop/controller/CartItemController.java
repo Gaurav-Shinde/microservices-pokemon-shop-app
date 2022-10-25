@@ -30,6 +30,7 @@ import com.gaurav.microservices.pokemonshop.repo.CartItemRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
+@Slf4j
 public class CartItemController {
 
 	@Autowired
@@ -86,7 +87,9 @@ public class CartItemController {
 	
 	private void initProductMap() {
 		ObjectMapper mapper = new ObjectMapper();
+		log.info("calling product service");
 		Object object = restTemplate.getForEntity("http://PRODUCT-SERVICE/products", Object.class).getBody();
+		log.info("retrieved product list");
 		Product[] products = mapper.convertValue(object, Product[].class);
 		productMap = Arrays.asList(products).stream().collect(Collectors.toMap(Product::getId,Function.identity()));
 	}
