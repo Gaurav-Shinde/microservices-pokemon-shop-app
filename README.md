@@ -2,7 +2,7 @@
 
 #### Summary
 
-This is a microservices application with angular client and backend microservices interacting through a cloud gateway.
+This is a microservices ecommerce application (with limited features) with angular client and backend microservices interacting through a cloud gateway.
 
 ###### Features
 
@@ -27,31 +27,31 @@ The angular client calls backend endpoints via http client to asynchronously ren
 
 ###### Notable Dependencies
 
-Eureka Client
-Eureka Server
-Cloud Config Server
-Cloud Config Client
-Spring Cloud Gateway
-Spring Cloud Load Balancer
-Spring Cloud Bootstrap
-Spring Cloud Sleuth
-Spring Cloud Zipkin
-Spring Web
-Spring Dev Tools
-Lombok
-Spring Cloud Hystrix
-Sping Cloud Circuit Breaker Reactor Resilience 4j
-Spring Cloud Actuator
+- Eureka Client
+- Eureka Server
+- Cloud Config Server
+- Cloud Config Client
+- Spring Cloud Gateway
+- Spring Cloud Load Balancer
+- Spring Cloud Bootstrap
+- Spring Cloud Sleuth
+- Spring Cloud Zipkin
+- Spring Web
+- Spring Dev Tools
+- Lombok
+- Spring Cloud Hystrix
+- Sping Cloud Circuit Breaker Reactor Resilience 4j
+- Spring Cloud Actuator
 
 #### Versions/Installations
-jdk 1.8.0_281
-sts 4.14.1
-mysql 8.0.25
-mysql workbench
-maven 3.8.6
-angular 14.1.3
-node 16.14.2
-npm 8.5.0
+- jdk 1.8.0_281
+- sts 4.14.1
+- mysql 8.0.25
+- mysql workbench
+- maven 3.8.6
+- angular 14.1.3
+- node 16.14.2
+- npm 8.5.0
 
 #### Required Setup
 
