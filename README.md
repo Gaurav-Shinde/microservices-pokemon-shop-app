@@ -1,5 +1,8 @@
 # microservices-pokemon-shop-app
 
+## Front page
+![home page](./home-page.png)
+
 ## Summary
 
 This is a microservices ecommerce application (with limited features) with angular client and backend microservices interacting through a cloud gateway.
