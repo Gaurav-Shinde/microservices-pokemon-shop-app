@@ -23,7 +23,7 @@ Global cors policy is configured to accept methods, headers, and allowed origin 
 
 The angular client calls backend endpoints via http client to asynchronously render data in UI view.
 
-![This is architecture diagram](./microservices-pokemonshop-architecture.png)
+![This is architecture diagram](./microservices-pokemonshop-architecture.drawio.png)
 
 ###### Notable Dependencies
 
