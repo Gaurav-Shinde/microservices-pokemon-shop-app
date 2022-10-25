@@ -7,7 +7,7 @@ This is a microservices ecommerce application (with limited features) with angul
 ###### Features
 
 - There are no users or role.
-- You can add products (pokemon cards) by name, price, and image name (case sensitive, lower case pokemon name -> no image if wrong format).
+- You can add products (pokemon cards) by name, price, and image name (case sensitive, lower case pokemon name -> no image if wrong format). This is because PokeAPI.co 3rd party API is utilized via RestTemplate to get pokemon properties.
 - You can add items to cart from home page, checkout with default address and credit card, and view orders.
 - Additionally you can view service log tracing for restTemplate calls in zipkin server on port 9411.
 
