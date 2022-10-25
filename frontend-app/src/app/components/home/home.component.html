@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+
+<body>
+  <div class="container m-5" *ngIf="products.length!=0">
+    <h1 class="text-center">Home</h1>
+    <div class="row">
+      <div class="col align-items-center" *ngFor="let item of products">
+        <div class="card p-2 m-2 text-center" style="width: 200px; height: 200px;">
+          <div><img class="card-img-top" src="{{item.img}}" alt="product img"></div>
+
+          <h2>{{item.name}}</h2>
+          <p>$ {{item.price | number : '1.2-2'}}</p>
+          <div class="d-inline-block">
+            <button class="btn btn-primary" (click)="addToCart(item);">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container p-5" *ngIf="products.length==0">
+    <h4 class="text-center">No products added...</h4>
+  </div>
+
+</body>
+
+</html>

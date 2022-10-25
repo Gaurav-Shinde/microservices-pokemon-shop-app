@@ -1,0 +1,22 @@
+package com.gaurav.microservices.pokemonshop.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class CartItem {
+
+	private int id;
+	private int productId;
+	private int cartId;
+	private Date date;
+	private int amount;
+}

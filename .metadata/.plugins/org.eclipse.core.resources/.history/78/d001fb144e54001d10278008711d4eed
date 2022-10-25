@@ -1,0 +1,28 @@
+package com.gaurav.microservices.pokemonshop.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.gaurav.microservices.pokemonshop.model.CartItemDTO;
+import com.gaurav.microservices.pokemonshop.repo.OrderRepository;
+
+@RestController
+public class OrderController {
+
+	@Autowired
+	OrderRepository repository;
+	
+	//add order
+	@PostMapping("/orders")
+	public Object addOrder(@RequestBody List<CartItemDTO> cartItems) {
+		
+		
+		return cartItems;
+	}
+	
+	//get all
+}

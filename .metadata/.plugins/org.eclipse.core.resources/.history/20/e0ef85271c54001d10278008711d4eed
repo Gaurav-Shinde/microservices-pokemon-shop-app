@@ -1,0 +1,5 @@
+package com.gaurav.microservices.pokemonshop;
+
+public class ProductList {
+
+}

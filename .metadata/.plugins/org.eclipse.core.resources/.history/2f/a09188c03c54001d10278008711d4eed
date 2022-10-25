@@ -1,0 +1,74 @@
+spring:
+  application:
+    name: API-GATEWAY
+    
+#ribbon:
+#  ReadTimeout: 60000
+#zuul:
+##  ribbon:
+##    eager-load:
+##      enabled: true
+##    ReadTimeout: 3000
+##    eureka:
+##      enabled: true
+#        
+#  routes:
+#    product-service:
+#      path: /products/**
+#      strip-prefix: false
+#      service-id: PRODUCT-SERVICE
+      
+server:
+  port: 9191
+  
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: CART-SERVICE
+          uri: lb://CART-SERVICE
+          predicates:
+          - Path= /cart-items/**
+          filters:
+          - name: CircuitBreaker
+            args:
+              name: CART-SERVICE
+              fallbackuri: forward:/cartFallback
+        - id: PRODUCT-SERVICE
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path= /products/** 
+          filters:
+          - name: CircuitBreaker
+            args:
+              name: PRODUCT-SERVICE
+              fallbackuri: forward:/productFallback 
+       
+---
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedMethods:
+              - GET
+---    
+#fallback service response timeout   
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+            
+#---
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

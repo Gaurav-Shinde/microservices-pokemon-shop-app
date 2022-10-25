@@ -1,0 +1,21 @@
+package com.gaurav.microservices.pokemonshop.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FallbackController {
+
+	@GetMapping("/productFallback")
+	public String productFallback() {
+		return "Product service took too long to respond. This is a fallback message.";
+	}
+	@GetMapping("/cartFallback")
+	public String cartFallback() {
+		return "Cart service took too long to respond. This is a fallback message.";
+	}
+	@GetMapping("/orderFallback")
+	public String orderFallback() {
+		return "Order service took too long to respond. This is a fallback message.";
+	}
+}

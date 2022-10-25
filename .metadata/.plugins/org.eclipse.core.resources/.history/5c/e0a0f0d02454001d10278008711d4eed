@@ -1,0 +1,15 @@
+package com.gaurav.microservices.pokemonshop;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.gaurav.microservices.pokemonshop.model.Product;
+
+public class ProductList {
+
+	protected List<Product> products;
+	
+	public ProductList() {
+		this.products = new ArrayList<>();
+	}
+}

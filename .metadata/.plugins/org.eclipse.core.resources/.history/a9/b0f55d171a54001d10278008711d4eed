@@ -1,0 +1,65 @@
+package com.gaurav.microservices.pokemonshop.controller;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import javax.sound.sampled.Port;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gaurav.microservices.pokemonshop.model.CartItem;
+import com.gaurav.microservices.pokemonshop.model.CartItemDTO;
+import com.gaurav.microservices.pokemonshop.model.Product;
+import com.gaurav.microservices.pokemonshop.repo.CartItemRepository;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RestController
+@Slf4j
+public class CartItemController {
+
+	@Autowired
+	CartItemRepository cartItemRepository;
+	
+	@Autowired
+	RestTemplate restTemplate;
+	
+	@GetMapping("/cart-items")
+	public List<CartItemDTO> findAll(){
+		List<CartItem> items = cartItemRepository.findAll();
+		
+//		Product[] objProducts = (Product[]) restTemplate.getForObject("http://PRODUCT-SERVICE/products", Object[].class);
+//		List<Product> products = new ObjectMapper().convertValue(objProducts, new TypeReference<List<Product>>() {});
+//		Map<Integer,Product> productMap = products.stream().collect(Collectors.toMap(Product::getId,Function.identity()));
+
+		Product[] objProducts = restTemplate.getForObject("http://PRODUCT-SERVICE/products", Product[].class);
+		log.info(objProducts.toString());
+//		List<Product> products = new ObjectMapper().convertValue(objProducts, new TypeReference<List<Product>>() {});
+		Map<Integer,Product> productMap = Arrays.asList(objProducts).stream().collect(Collectors.toMap(Product::getId,Function.identity()));
+		
+		List<CartItemDTO> cartTree = new ArrayList(); 
+		items.stream().peek(ci -> cartTree.add(new CartItemDTO(ci, productMap.get(ci.getId()))));
+		
+		return cartTree;
+	}
+	
+//	@GetMapping("/cart-items")
+//	public ResponseEntity<?> add(@RequestParam int id){
+//		
+//	}
+//	
+//	public ResponseEntity<?> delete(){
+//		
+//	}
+}

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: API-GATEWAY
+
+zuul:
+#  ribbon:
+#    eager-load:
+#      enabled: true
+#    ReadTimeout: 3000
+  routes:
+    product-service:
+      path: /products/**
+#      strip-prefix: false
+      service-id: PRODUCT-SERVICE
+      
+server:
+  port: 8085
+    
+
+

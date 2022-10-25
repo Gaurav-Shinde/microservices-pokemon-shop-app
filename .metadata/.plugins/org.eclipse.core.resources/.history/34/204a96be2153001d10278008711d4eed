@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: API-GATEWAY
+    
+#ribbon:
+#  ReadTimeout: 60000
+#zuul:
+##  ribbon:
+##    eager-load:
+##      enabled: true
+##    ReadTimeout: 3000
+##    eureka:
+##      enabled: true
+#        
+#  routes:
+#    product-service:
+#      path: /products/**
+#      strip-prefix: false
+#      service-id: PRODUCT-SERVICE
+      
+server:
+  port: 9191
+  
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: PRODUCT-SERVICE
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+          - Path=/products/** 
+    
+
+
