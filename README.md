@@ -1,17 +1,17 @@
 # microservices-pokemon-shop-app
 
-#### Summary
+## Summary
 
 This is a microservices ecommerce application (with limited features) with angular client and backend microservices interacting through a cloud gateway.
 
-###### Features
+#### Features
 
 - There are no users or role.
 - You can add products (pokemon cards) by name, price, and image name (case sensitive, lower case pokemon name -> no image if wrong format). This is because PokeAPI.co 3rd party API is utilized via RestTemplate to get pokemon properties.
 - You can add items to cart from home page, checkout with default address and credit card, and view orders.
 - Additionally you can view service log tracing for restTemplate calls in zipkin server on port 9411.
 
-###### Architecture
+#### Architecture
 
 The registry-server keeps track of and ids all the clients registered with it. This includes the config server, 3 microservices, and gateway.
 
@@ -25,7 +25,7 @@ The angular client calls backend endpoints via http client to asynchronously ren
 
 ![This is architecture diagram](./microservices-pokemonshop-architecture.drawio.png)
 
-###### Notable Dependencies
+#### Notable Dependencies
 
 - Eureka Client
 - Eureka Server
@@ -43,7 +43,7 @@ The angular client calls backend endpoints via http client to asynchronously ren
 - Sping Cloud Circuit Breaker Reactor Resilience 4j
 - Spring Cloud Actuator
 
-#### Versions/Installations
+## Versions/Installations
 - jdk 1.8.0_281
 - sts 4.14.1
 - mysql 8.0.25
@@ -53,20 +53,26 @@ The angular client calls backend endpoints via http client to asynchronously ren
 - node 16.14.2
 - npm 8.5.0
 
-#### Required Setup
+## Required Setup
+In mysql workbench, setup these schemas corresponding to the jdbc connection url:
+- jdbc:mysql://localhost:3306/microservices_pokemonshop_order_service_db
+- jdbc:mysql://localhost:3306/microservices_pokemonshop_cart_service_db
+- jdbc:mysql://localhost:3306/microservices_pokemonshop_product_service_db
 
-#### Run
+## Run
 After the prior setup, run the angular app in vs code with command `ng serve`.
 
 Then in STS, run registry-service, config-service, gateway-service, [product-service, cart-service, order-service] as a java app in this order.
 
 You can use postman for testing endpoints and log tracing in Zipkin. To run zipkin jar file enter `java -jar zipkin.jar` in command line.
 
-#### Fail Points and Future Updates
+## Fail Points and Future Updates
 
 - Hystrix Dashboard wouldn't connect to actuator/hystrix.stream and the data pings also don't mention the endpoint call to a service.
 
 - Zipkin seems to not detect services and their log trace, but sleuth can.
+
+- I noticed occasional 
 
 - Will try to use Feign Client to integrate custom http client response handling and fallback methods.
 
